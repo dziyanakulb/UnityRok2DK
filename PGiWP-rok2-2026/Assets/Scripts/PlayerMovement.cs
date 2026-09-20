@@ -1,20 +1,46 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{ public float moveSpeed = 5.0f;
+{
+    public float movementSpeed = 3f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private bool isGrounded;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float moveX;
+
+    private int jumpCount = 0;
+    public int maxJumps = 2;
+
+    private void Start()
     {
-          rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-     float movex = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2( movex * moveSpeed, 0f);
+        // Движение влево-вправо
+        moveX = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(moveX * movementSpeed, rb.linearVelocity.y);
+
+        // Прыжок с ограничением
+        if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            jumpCount++; // Увеличиваем счетчик прыжков
+        }
+    } // <-- ВОТ ЭТУ СКОБКУ МЫ ВЕРНУЛИ! Теперь функция Update закрыта правильно.
+
+    // Звук при приземлении на землю
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.name.Contains("Tilemap"))
+        {
+            jumpCount = 0; // Шарик на земле — прыжки снова доступны!
+
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio != null && !audio.isPlaying)
+            {
+                audio.Play();
+            }
+        }
     }
 }

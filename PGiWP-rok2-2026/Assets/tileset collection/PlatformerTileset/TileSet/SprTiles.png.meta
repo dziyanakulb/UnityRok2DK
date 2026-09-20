@@ -1195,7 +1195,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SprTiles_49
+      name: Apple
       rect:
         serializedVersion: 2
         x: 16
@@ -1540,6 +1540,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      Apple: 905413377
       SprTiles_0: -1410031488
       SprTiles_1: -1611525617
       SprTiles_10: -203800353
@@ -1584,7 +1585,6 @@ TextureImporter:
       SprTiles_46: 1383115861
       SprTiles_47: 463855887
       SprTiles_48: -1473011888
-      SprTiles_49: 905413377
       SprTiles_5: 1135162647
       SprTiles_50: 1123176941
       SprTiles_51: -1055778661
