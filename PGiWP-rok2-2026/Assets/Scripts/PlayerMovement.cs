@@ -17,24 +17,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Движение влево-вправо
+      
         moveX = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveX * movementSpeed, rb.linearVelocity.y);
 
-        // Прыжок с ограничением
+       
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            jumpCount++; // Увеличиваем счетчик прыжков
+            jumpCount++; 
         }
-    } // <-- ВОТ ЭТУ СКОБКУ МЫ ВЕРНУЛИ! Теперь функция Update закрыта правильно.
+    } 
 
-    // Звук при приземлении на землю
+ 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.name.Contains("Tilemap"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            jumpCount = 0; // Шарик на земле — прыжки снова доступны!
+            jumpCount = 0; 
 
             AudioSource audio = GetComponent<AudioSource>();
             if (audio != null && !audio.isPlaying)

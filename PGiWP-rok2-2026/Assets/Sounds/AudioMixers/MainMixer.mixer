@@ -107,10 +107,16 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 6f9609fcf65d5d2448f0d32ffd2f0d0e
+    name: master volume
   - guid: cd760b84b342d9b4c80342920a40c1d3
     name: music volume
   - guid: d6f6a15a34ed5004a84dcbd43aa7bedc
-    name: MyExposedParam
+    name: EchoDelay
+  - guid: 197822bb7ce64c44d8592d2d703aba46
+    name: sfx volume
+  - guid: aa2a3a77750f8964f891071816824d51
+    name: ui volume
   m_AudioMixerGroupViews:
   - guids:
     - df8162f7864245046a2bda548e5e1a7b
@@ -166,9 +172,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 15ad73cf51de2b0449f28bcdf415d106
   m_FloatValues:
-    cd760b84b342d9b4c80342920a40c1d3: -0.16685188
+    cd760b84b342d9b4c80342920a40c1d3: 16.9
+    aa2a3a77750f8964f891071816824d51: 20
+    0771b4c73b88f234cb51dd543e894c2e: 1
     d6f6a15a34ed5004a84dcbd43aa7bedc: 493
-    197822bb7ce64c44d8592d2d703aba46: 2.090601
+    197822bb7ce64c44d8592d2d703aba46: 0.44051176
   m_TransitionOverrides: {}
 --- !u!244 &3522461876642419484
 AudioMixerEffectController:
